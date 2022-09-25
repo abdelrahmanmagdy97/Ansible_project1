@@ -1,6 +1,6 @@
 ---
 - name: "configuration play"
-  hosts: all
+  hosts: 34.226.246.204
   user: ubuntu
   become: true
   become_method: sudo
