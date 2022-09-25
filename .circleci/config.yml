@@ -25,7 +25,7 @@ jobs:
   # as it uses your playbook file, and the playbook have the running EC2
   configure_infrastructure: 
     docker:
-      - image: python:3.7-alpine3.11
+      - image: python:3.11-rc-alpine
     steps:
       - checkout
       - add_ssh_keys:
