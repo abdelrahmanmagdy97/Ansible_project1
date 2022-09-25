@@ -31,14 +31,16 @@ jobs:
       - add_ssh_keys:
               # You can get this ID in the section where you registered the SSH Key
               fingerprints: ["fc:22:cd:85:f2:ea:c3:9b:e3:29:85:f2:20:3a:0d:8e"] 
-      - run:
-          name: Install Ansible
-          command: |
-            apk add --update ansible
+      
       - run:
           name: Run Playbook and Configure server
           command: |
             ansible-playbook -i inventory.txt  main.yml
+
+      - run:
+          name: Install Ansible
+          command: |
+            apk add --update ansible
 # Sequential workflow
 workflows:
   # Name the workflow here
