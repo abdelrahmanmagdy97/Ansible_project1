@@ -1,10 +1,12 @@
 ---
-- name: "configuration play"
+# Exercise for setting up a web server in an EC
+- name: Exercise for setting up a web server in an EC 
+  # hosts: ubuntu
+  # Use the public IP if the VM is already created
   hosts: 34.226.246.204
   user: ubuntu
   become: true
   become_method: sudo
   become_user: root
- 
   roles:
-    - setup
+   - setup
