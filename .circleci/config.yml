@@ -43,7 +43,6 @@ jobs:
 workflows:
   # Name the workflow here
   myWorkflow:
-
     jobs:
      # - create_infrastructure
        - configure_infrastructure
