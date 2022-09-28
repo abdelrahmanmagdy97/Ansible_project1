@@ -39,7 +39,10 @@ jobs:
   #         name: Run Playbook and Configure server
   #         command: |
   #           ansible-playbook -i inventory.txt  main.yml
-
+  # 
+  
+      # Smoke_Test This job is different from the previous jobs , not related to each others, This one just tests the url give, it is not from any ec2 or server, It is just from circle ci a simple test
+  # you can make it inside a server or etc by configuring connection steps inside the job first as previous jobs then typing this command
   smoke_test:
     docker:
       - image: alpine:latest
@@ -48,7 +51,7 @@ jobs:
       - run:
           name: smoke test
           command: |
-            URL="https://blogg.udacity.com/"
+            URL="https://blog.udacity.com/"
             # Test if website exists
             if curl -s --head ${URL} 
             then
