@@ -23,22 +23,40 @@ jobs:
               
     #This job is different from the previous job , not related to each others, This one uses running ec2 and configures on it python with ansible
   # as it uses your playbook file, and the playbook have the running EC2
-  configure_infrastructure: 
+  # configure_infrastructure: 
+  #   docker:
+  #     - image: python:3.11-rc-alpine
+  #   steps:
+  #     - checkout
+  #     - add_ssh_keys:
+  #             # You can get this ID in the section where you registered the SSH Key
+  #             fingerprints: ["fc:22:cd:85:f2:ea:c3:9b:e3:29:85:f2:20:3a:0d:8e"] 
+  #     - run:
+  #         name: Install Ansible
+  #         command: |
+  #           apk add --update ansible
+  #     - run:
+  #         name: Run Playbook and Configure server
+  #         command: |
+  #           ansible-playbook -i inventory.txt  main.yml
+
+  smoke_test:
     docker:
-      - image: python:3.11-rc-alpine
+      - image: alpine:latest
     steps:
-      - checkout
-      - add_ssh_keys:
-              # You can get this ID in the section where you registered the SSH Key
-              fingerprints: ["fc:22:cd:85:f2:ea:c3:9b:e3:29:85:f2:20:3a:0d:8e"] 
+      - run: apk add --update curl
       - run:
-          name: Install Ansible
+          name: smoke test
           command: |
-            apk add --update ansible
-      - run:
-          name: Run Playbook and Configure server
-          command: |
-            ansible-playbook -i inventory.txt  main.yml
+            URL="https://blog.udacity.com/"
+            # Test if website exists
+            if curl -s --head ${URL} 
+            then
+              return 0
+            else
+              return 1
+            fi
+
 # Sequential workflow
 workflows:
   # Name the workflow here
