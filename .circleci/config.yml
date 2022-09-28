@@ -48,13 +48,15 @@ jobs:
       - run:
           name: smoke test
           command: |
-            URL="https://blogg.udacity.com/"
+            URL="https://blog.udacity.com/"
             # Test if website exists
             if curl -s --head ${URL} 
             then
               return 0
+              echo 'working'
             else
               return 1
+              echo 'not working'
             fi
 
 # Sequential workflow
