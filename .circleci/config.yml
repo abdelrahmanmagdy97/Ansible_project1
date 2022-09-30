@@ -37,7 +37,6 @@ jobs:
                 --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} \
                 --region us-east-1
               
-              
     #This job is different from the previous job , not related to each others, This one uses running ec2 and configures on it python with ansible
   # as it uses your playbook file, and the playbook have the running EC2
   # configure_infrastructure: 
