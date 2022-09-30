@@ -84,6 +84,6 @@ workflows:
   # Name the workflow here
   myWorkflow:
     jobs:
-     # - create_infrastructure
+        - create_infrastructure
      #  s- configure_infrastructure
         - smoke_test 
