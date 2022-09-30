@@ -38,7 +38,7 @@ jobs:
                 --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} \
                 --region us-east-1
 
-         # - run: return 1
+        - run: return 1
         - destroy_environment
               
     #This job is different from the previous job , not related to each others, This one uses running ec2 and configures on it python with ansible
